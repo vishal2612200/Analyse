@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <link rel="stylesheet"  href="maincss.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" href="javascript1.js"></script>
+    <script type="text/javascript" >
+    
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+          
+          
+          subjectone=document.getElementById('subjectone').value*1;
+          subjecttwo=document.getElementById('subjecttwo').value*1;
+            subjectthree =document.getElementById('subjectthree').value * 1;
+            subjectfour =document.getElementById('subjectfour').value* 1;
+          subjectfive =document.getElementById('subjectfive').value* 1;
+           subjectsix =document.getElementById('subjectsix').value*1;
+   
+
+        var data = google.visualization.arrayToDataTable([
+          ['Compromise', 'Quantity'],
+          ['subject-one',  subjectone],
+          ['x ', 0],
+          ['subject-two', subjecttwo],
+          ['subject-three',  subjectthree],
+          ['subject-four', subjectfour],
+          ['subject-five', subjectfive],
+          ['subject-six', subjectsix],
+                
+        ]);
+          
+ 
+        
+        
+        var options = {
+          color:["#029028"],
+          title: 'Subject attendence',
+          is3D: true,
+          titleTextStyle: {
+        color: '#4859cb',    // any HTML string color ('red', '#cc00cc')
+        fontName: 'impact', // i.e. 'Times New Roman'
+        fontSize: 70, // 12, 18 whatever you want (don't specify px)
+        bold: true,    // true or false
+        italic: true   // true of false
+    }
+          
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+     
+      <p align="center">
+      <h1>Analyse</h1>
+      <img src=""          style="float:right;border-radius:45%;">
+      </p>
+
+<!--
+
+<script LANGUAGE="javascript">
+
+
+function getParams(){
+    var idx = document.URL.indexOf('?');
+    var params = new Array();
+    if (idx != -1) {
+    var pairs = document.URL.substring(idx+1, document.URL.length).split('&');
+    for (var i=0; i<pairs.length; i++){
+    nameVal = pairs[i].split('=');
+    params[nameVal[0]] = nameVal[1];
+    }
+    }
+    return params;
+    }
+    params = getParams();
+    inputone = unescape(params["inputone"]);
+    input2 = unescape(params["input2"]);
+    input3 = unescape(params["input3"]);
+    input4 = unescape(params["input4"]);
+    input5 = unescape(params["input5"]);
+    input6 = unescape(params["input6"]);
+    document.getElementById("lav").innerHTML= inputone;
+    document.write("lastname = " + inputone + "<br>");
+  //  document.write("age = " + age + "<br>");
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+-->
+
+      <div id="formarea">
+    
+                 <label> subject-one:</label>  <input  type="number" name="subjectone" value=1 id="subjectone" /><br/><br/>
+                <label>    subject-two:</label> <input type="number" name="subjecttwo" value=1 id="subjecttwo"/></br></br>
+             <label>      subject-three:</label> <input type="number" name="subjectthree" value=1 id="subjectthree" /><br/><br/>
+                  <label>  subject-four: </label><input type="number" name="subjectfour" value=1 id="subjectfour" /><br/><br/>
+                   <label> subject-five: </label><input type="number" name="subjectfive" value=1 id="subjectfive"/><br/><br/>
+                   <label> subject-six: </label><input type="number" name="subjectsix" value=1 id="subjectsix"/><br/><br/>
+                
+     
+              </div>
+      
+    <div id="piechart_3d" ></div>
+    
+  </body>
+</html>
