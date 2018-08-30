@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <link rel="stylesheet"  href="maincss.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <!--<script type="text/javascript" src="javascript1.js"></script>-->
+
+    <script type="text/javascript" >
+    
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+          
+          
+          subjectone=document.getElementById('sub1').value*1;
+          subjecttwo=document.getElementById('sub2').value*1;
+            subjectthree =document.getElementById('sub3').value * 1;
+            subjectfour =document.getElementById('sub4').value* 1;
+          subjectfive =document.getElementById('sub5').value* 1;
+           subjectsix =document.getElementById('sub6').value*1;
+   
+
+        var data = google.visualization.arrayToDataTable([
+          ['Compromise', 'Quantity'],
+          ['subject-one',  subjectone],
+          ['x ', 0],
+          ['subject-two', subjecttwo],
+          ['subject-three',  subjectthree],
+          ['subject-four', subjectfour],
+          ['subject-five', subjectfive],
+          ['subject-six', subjectsix],
+                
+        ]);
+          
+ 
+        
+        
+        var options = {
+          color:["#029028"],
+          title: 'Subject attendence',
+          is3D: true,
+          titleTextStyle: {
+        color: '#4859cb',    // any HTML string color ('red', '#cc00cc')
+        fontName: 'impact', // i.e. 'Times New Roman'
+        fontSize: 70, // 12, 18 whatever you want (don't specify px)
+        bold: true,    // true or false
+        italic: true   // true of false
+    }
+          
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+     
+      <p align="center">
+      <h1>Analyse</h1>
+      <img src=""          style="float:right;border-radius:45%;">
+      </p>
+
+
+
+
+
+
+
+
+
+
+
+  <div id="formarea">
+    
+                 <label> subject-one:</label><input  type="number" name="subjectone" value=1 id="sub1" /><br/><br/>
+                <label>    subject-two:</label> <input type="number" name="subjecttwo" value=1 id="sub2"/></br></br>
+             <label>      subject-three:</label> <input type="number" name="subjectthree" value=1 id="sub3" /><br/><br/>
+                  <label>  subject-four: </label><input type="number" name="subjectfour" value=1 id="sub4" /><br/><br/>
+                   <label> subject-five: </label><input type="number" name="subjectfive" value=1 id="sub5"/><br/><br/>
+                   <label> subject-six: </label><input type="number" name="subjectsix" value=1 id="sub6"/><br/><br/>
+                
+     
+  </div>
+      
+  <div id="piechart_3d" ></div>
+
+  <script type="text/javascript">   
+       var params = getParams();
+       var inputs = new Array()
+   
+    for(var i=0;i<6;++i){
+           inputs[i]=unescape(params["input"+(i+1)]);
+       }
+     
+    if(inputs[0]!="undefined")
+       for(var i=0;i<6;++i){
+       document.getElementById('sub'+(i+1)).previousElementSibling.innerHTML=inputs[i]+':';
+     }
+       
+   
+   function getParams(){
+       var idx = document.URL.indexOf('?');
+       var params = new Array();
+       if (idx != -1) {
+       var pairs = document.URL.substring(idx+1, document.URL.length).split('&');
+       for (var i=0; i<pairs.length; i++){
+       nameVal = pairs[i].split('=');
+       params[nameVal[0]] = nameVal[1];
+       }
+       }
+       return params;
+       }
+  </script>
+
+  </body>
+</html>

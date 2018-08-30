@@ -1,0 +1,46 @@
+body{
+    background:black;
+    color:white;
+    text-align:center;
+
+}
+#inputcontainer{
+    text-align:center;
+    color:white;
+}
+h1{
+    font-size: 89px;
+    float:center;
+
+
+    font-family: 'Abril Fatface', cursive;
+
+
+}
+label{
+    font-weight: 684;
+    font-size: 30px;
+}
+#description{
+    background:white;
+    color:black;
+    border-radius:10px;
+}
+h2{
+    font-size:40px;
+    font-family:impact;
+   
+}
+#buttoncontainer{
+    width:30%;
+    height:30px;
+    background:#2087af;
+    border-radius:10px;
+    position: relative;
+    left:0%;
+    margin-top:10px;
+    text-decoration: none;
+    color:white;
+    margin-top:16px;
+    font-size:25px;
+}
